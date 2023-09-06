@@ -1,5 +1,7 @@
 package main.java.set.OperacoesBasicas;
 
+import java.util.Objects;
+
 @SuppressWarnings("ALL")
 public class Convidado {
 
@@ -25,5 +27,18 @@ public class Convidado {
                 "nome='" + nome + '\'' +
                 ", codigoConvite=" + codigoConvite +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Convidado)) return false;
+        Convidado convidado = (Convidado) o;
+        return getCodigoConvite() == convidado.getCodigoConvite();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCodigoConvite());
     }
 }
