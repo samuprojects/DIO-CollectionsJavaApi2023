@@ -16,8 +16,10 @@ public class AgendaContatos {
     }
 
     public void removerContato(String nome){
-        if(agendaContatoMap.isEmpty()){
+        if(!agendaContatoMap.isEmpty()){
             agendaContatoMap.remove(nome);
+        } else {
+            System.out.println("A agenda de contatos está vazia.");
         }
     }
 
@@ -31,5 +33,24 @@ public class AgendaContatos {
             numeroPorNome = agendaContatoMap.get(nome);
         }
         return numeroPorNome;
+    }
+
+    public static void main(String[] args) {
+        AgendaContatos agendaContatos = new AgendaContatos();
+
+        agendaContatos.adicionarContato("Samuel", 123456);
+        agendaContatos.adicionarContato("Samuel", 5665);
+        agendaContatos.adicionarContato("Samuel Costa", 1111111);
+        agendaContatos.adicionarContato("Samuel DIO", 654987);
+        agendaContatos.adicionarContato("Maria Silva", 1111111);
+        agendaContatos.adicionarContato("Samuel", 44444); // o put faz replace da informação na chave por isso ficou esse último
+
+        agendaContatos.exibirContatos();
+
+        agendaContatos.removerContato("Maria Silva");
+        agendaContatos.exibirContatos();
+
+        System.out.println("O número é: " + agendaContatos.pesquisarPorNome("Samuel DIO"));
+
     }
 }
