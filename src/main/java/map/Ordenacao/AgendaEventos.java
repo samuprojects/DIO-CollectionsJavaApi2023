@@ -1,6 +1,7 @@
 package main.java.map.Ordenacao;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -50,5 +51,15 @@ public class AgendaEventos {
     public static void main(String[] args) {
 
         AgendaEventos agendaEventos = new AgendaEventos();
+
+        agendaEventos.adicionarEvento(LocalDate.of(2022, Month.JULY,15),"Conferencia Tech", "Alguém importante");
+        agendaEventos.adicionarEvento(LocalDate.of(2022, 7,9),"Workshop Prog", "Aula pratica codes");
+        agendaEventos.adicionarEvento(LocalDate.of(2000, 1,10),"Lançamento App", "Nova versão");
+        agendaEventos.adicionarEvento(LocalDate.of(2023, Month.AUGUST,28),"Hackathon", "Competição de soluções");
+        agendaEventos.adicionarEvento(LocalDate.of(2024, 9,20),"Seminário IA", "Discussão");
+
+        agendaEventos.exibirAgenda();
+
+        agendaEventos.obterProximoEvento();
     }
 }
